@@ -1,7 +1,7 @@
 from django.contrib import admin 
 from django.urls import path 
 from .views import sayHello, index, bookingView, menuView
-from rest_framework.authtoken import obtain_auth_token
+from rest_framework.authtoken.views import obtain_auth_token
 
 from restaurant import views
 
