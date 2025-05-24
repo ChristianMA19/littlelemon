@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'restaurant',  # Custom app for the restaurant
     'rest_framework',  # Django REST framework for API development
+    'rest_framework.authtoken',  # Token authentication for REST framework
+    'djoser',  # Django REST framework for user management
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework.renderers.XMLRenderer',
+    ],
+}
+
+DJOSER={"USER_ID_FIELD":"username"}
